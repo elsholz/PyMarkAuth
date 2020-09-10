@@ -1,5 +1,5 @@
 from .lists import UnorderedList, OrderedList
-from .styles import Italics, Bold
+from .styles import Italics, Bold, StrikeThrough
 from .lines import Lines, Paragraphs, BlankSeparated
 from .links import Link, Image
 from .tables import Table
