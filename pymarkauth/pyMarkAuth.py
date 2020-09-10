@@ -86,6 +86,14 @@ class MarkDown:
         c = OrderedList(*args)
         return c if self.is_root else self._content.append(c)
 
+    def image(self, source='', alt_text=''):
+        c = Image(source=source, alt_text=alt_text)
+        return c if self.is_root else self._content.append(c)
+
+    def link(self, target='', display_text=''):
+        c = Link(target=target, display_text=display_text)
+        return c if self.is_root else self._content.append(c)
+
 
 class Section(MarkDown):
     def __init__(self, title, level):
