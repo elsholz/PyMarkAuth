@@ -14,6 +14,7 @@ class MarkDown:
 
     def __enter__(self):
         self.output_file = open(self.file_path) if self.file_path else None
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.output_file:
@@ -31,7 +32,7 @@ class MarkDown:
 
     def text(self, *args):
         """Return a Text Object"""
-        c = ''.join(args)
+        c = Text(*args)
         return c if self.is_root else self._content.append(c)
 
     def newline(self):
@@ -74,3 +75,11 @@ class Section(MarkDown):
 
     def __str__(self):
         return '\n\n' + "#" * self.level + " " + str(self.title) + '\n' + ''.join(str(x) for x in self._content)
+
+
+class Text:
+    def __init__(self, *args):
+        self.elements = args
+
+    def __str__(self):
+        return ''.join(str(x) for x in self.elements)
