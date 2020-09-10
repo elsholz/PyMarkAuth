@@ -13,11 +13,12 @@ class MarkDown:
         self.file_path = file_path
 
     def __enter__(self):
-        self.output_file = open(self.file_path) if self.file_path else None
+        self.output_file = open(self.file_path, 'w') if self.file_path else None
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.output_file:
+            self.output_file.write(self.__str__())
             self.output_file.close()
 
     def __str__(self):
@@ -50,6 +51,11 @@ class MarkDown:
         c = Lines(*args)
         return c if self.is_root else self._content.append(c)
 
+    def paragraphs(self, *args):
+        """Stick arguments together, with a new line in between"""
+        c = Paragraphs(*args)
+        return c if self.is_root else self._content.append(c)
+
     def blank_separated(self, *args):
         """Separate each item with one space in between."""
         c = BlankSeparated(*args)
@@ -63,6 +69,21 @@ class MarkDown:
     def bold(self, *args):
         """Apply styling to all arguments"""
         c = Bold(*args)
+        return c if self.is_root else self._content.append(c)
+
+    def strike_through(self, *args):
+        """Apply styling to all arguments"""
+        c = StrikeThrough(*args)
+        return c if self.is_root else self._content.append(c)
+
+    def unordered_list(self, *args):
+        """Make unordered list from items"""
+        c = UnorderedList(*args)
+        return c if self.is_root else self._content.append(c)
+
+    def ordered_list(self, *args):
+        """Make ordered list from items"""
+        c = OrderedList(*args)
         return c if self.is_root else self._content.append(c)
 
 
