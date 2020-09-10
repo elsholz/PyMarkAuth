@@ -1,0 +1,6 @@
+build
+dist
+pymarkauth.egg-info
+*.pyc
+__pycache__
+.idea
