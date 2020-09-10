@@ -4,7 +4,7 @@ class Link:
         self.display_text = display_text or target
 
     def __str__(self):
-        return '\n[' + str(self.display_text) + '](' + str(self.display_text) + ')\n'
+        return '\n[' + str(self.display_text) + '](' + str(self.target) + ')\n'
 
 
 class Image:
