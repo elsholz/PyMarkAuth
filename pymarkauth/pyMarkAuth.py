@@ -3,6 +3,7 @@ from .styles import Italics, Bold, StrikeThrough
 from .lines import Lines, Paragraphs, BlankSeparated
 from .links import Link, Image
 from .tables import Table
+from .code import Code
 
 
 class MarkDown:
@@ -92,6 +93,10 @@ class MarkDown:
 
     def link(self, target='', display_text=''):
         c = Link(target=target, display_text=display_text)
+        return c if self.is_root else self._content.append(c)
+
+    def code(self, *args, inline=False, language=''):
+        c = Code(*args, inline=inline, language=language)
         return c if self.is_root else self._content.append(c)
 
 
