@@ -24,6 +24,7 @@ with MarkDown('../README.md') as doc:
     ])
 
     sec.newline()
+    sec.newline()
     sec.text('Heres some code:')
     sec.newline()
     sec.code(
