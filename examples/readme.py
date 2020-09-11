@@ -14,13 +14,23 @@ with MarkDown('../README.md') as doc:
         'text styling',
         'links and images',
         'nested ordered lists and unordered lists',
+        'code blocks',
         doc.italics('future features:'),
         doc.ordered_list([
             'Tables',
             'List of emojies (github specific)',
-            'Code blocks and programming language enum'
+            'programming language enum'
         ])
     ])
+
+    sec.newline()
+    sec.text('Heres some code:')
+    sec.newline()
+    sec.code(
+        'for x in range(10):',
+        '    print(f"Hello, World! {x}")',
+        language='python'
+    )
 
     subsec = sec.section('You can also add images and links')
     subsec.image(source='logo/logo.svg')
