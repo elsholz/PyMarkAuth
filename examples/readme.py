@@ -23,10 +23,7 @@ with MarkDown('../README.md') as doc:
         ])
     ])
 
-    sec.newline()
-    sec.newline()
     sec.text('Heres some code:')
-    sec.newline()
     sec.code(
         'for x in range(10):',
         '    print(f"Hello, World! {x}")',

@@ -20,7 +20,8 @@ class List:
             raise ValueError("`items` must be list.")
 
     def __str__(self):
-        return '\n'.join(str(x) for x in self.items)
+        nl = '\n\n' if not self.level else ''
+        return nl + '\n'.join(str(x) for x in self.items) + nl
 
     @property
     def level(self):

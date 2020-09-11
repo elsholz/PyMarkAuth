@@ -8,4 +8,4 @@ class Code:
         if self.inline:
             return '`' + '\n'.join(self.lines) + '`'
         else:
-            return '```' + self.language + '\n' + '\n'.join(self.lines) + '\n```'
+            return '\n```' + self.language + '\n' + '\n'.join(self.lines) + '\n```\n'
